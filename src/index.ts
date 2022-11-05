@@ -10,9 +10,9 @@ app.use(helmet());
 app.use(cors());
 
 app.get('/home', async (req: Request, res: Response) => {
-    res.json({ hello: 'world' });
+  res.json({ hello: 'world' });
 });
 
 app.listen(3000, () => {
-    console.log('running app');
+  console.log('running app');
 })
