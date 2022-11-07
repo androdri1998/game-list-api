@@ -2,8 +2,7 @@ import debug, { Debugger } from 'debug';
 
 import LogImp, { LogDTO } from '../../providers/Log';
 
-
-class Log implements LogImp {
+class Log implements LogImp<Debugger> {
   _debug: Debugger;
 
   constructor(key: string) {

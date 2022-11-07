@@ -3,8 +3,9 @@ type LogDTO = {
   params?: Object;
 };
 
-interface LogImp {
-  create({ message, params }: LogDTO): void;
+interface LogImp<TDebug> {
+  _debug: TDebug;
+  _log({ message, params }: LogDTO): void;
   create({ message, params }: LogDTO): void;
 };
 
