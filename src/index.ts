@@ -7,11 +7,10 @@ import config from './config';
 import Log from './modules/app/infra/providers/Log';
 import HandleErrors from './modules/app/infra/middlewares/HandleErrors';
 import Messages from './modules/app/constants/Messages';
-import HttpStatus from './modules/app/infra/constants/HttpStatus';
 
 const app = express();
 const appLog = new Log(config.errorLogKey);
-const handleErrors = new HandleErrors(appLog, HttpStatus, Messages);
+const handleErrors = new HandleErrors(appLog, Messages);
 
 app.use(express.json());
 app.use(helmet());
