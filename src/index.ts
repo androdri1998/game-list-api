@@ -8,17 +8,22 @@ import Log from './modules/app/infra/providers/Log';
 import HandleErrors from './modules/app/infra/middlewares/HandleErrors';
 import Messages from './modules/app/constants/Messages';
 
+import StatusApplicationController from './modules/app/infra/controllers/StatusApplicationController';
+import GetStatusApplicationService from './modules/app/services/GetStatusApplicationService';
+
 const app = express();
 const appLog = new Log(config.errorLogKey);
 const handleErrors = new HandleErrors(appLog, Messages);
+
+const getStatusApplicationService = new GetStatusApplicationService();
+const statusApplicationController = new StatusApplicationController(getStatusApplicationService);
+
 
 app.use(express.json());
 app.use(helmet());
 app.use(cors());
 
-app.get('/home', async (req: Request, res: Response) => {
-  res.json({ hello: 'world' });
-});
+app.get('/status', statusApplicationController.get);
 
 app.use(handleErrors.watchErrors);
 
