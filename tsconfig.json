@@ -15,9 +15,11 @@
     "forceConsistentCasingInFileNames": true
   },
   "exclude": [
+    "./__tests_integration__/**/*",
+    "./coverage/**/*",
     "./dist/**/*",
     "prettier.config.js",
     "jest.config.ts",
-    "jest.config.js"
+    "jest.config.js",
   ]
 }
