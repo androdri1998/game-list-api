@@ -4,7 +4,7 @@ import { Express } from 'express';
 import RequestServiceImp from '../../services/RequestService';
 
 class RequestService implements RequestServiceImp<Test> {
-  _server;
+  _server: SuperTest<Test>;
 
   constructor(application: Express) {
     this._server = supertest(application);
